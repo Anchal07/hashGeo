@@ -20,14 +20,19 @@ public class GeoHashController {
         return geoInterface.geohashForPairDavid(lat, lng);
     }
 
-    @PostMapping("/bounds/list")
-    public Map<String, LatLngDto> geoHashForBoundsList(@RequestBody BoundsReqDto boundsReqDto){
-        return geoInterface.geoHashForAlist(boundsReqDto.getLatLngDtoList());
+    @PostMapping("/bounds/list/{precesion}")
+    public Map<String, LatLngDto> geoHashForBoundsList(@RequestBody BoundsReqDto boundsReqDto, @PathVariable("precesion") int precesion){
+        return geoInterface.geoHashForAlist(boundsReqDto.getLatLngDtoList(), precesion);
     }
 
-    @PostMapping("/bounds/complete_hash")
-    public Map<LatLngDto, String> geoHashComplete(@RequestBody BoundsReqDto boundsReqDto){
-        return geoInterface.geoHashComplete(boundsReqDto.getLatLngDtoList());
+    @PostMapping("/bounds/complete_hash/{precesion}")
+    public List<String> geoHashComplete(@RequestBody BoundsReqDto boundsReqDto, @PathVariable("precesion") int preceison){
+        return geoInterface.geoHashComplete(boundsReqDto.getLatLngDtoList(), preceison);
+    }
+
+    @GetMapping("/circle/query/{lat}/{lng}/{radius}")
+    public List<String> getGeoHashByQuery(@PathVariable("lat") Double lat, @PathVariable("lng") Double lng, @PathVariable("radius") Integer radius){
+        return geoInterface.geoHashOnBasisOfQuery(lat, lng, radius);
     }
 
 }

@@ -7,8 +7,10 @@ public interface GeoInterface {
 
     String geohashForPairDavid(Double lat, Double lng);
 
-    Map<String, LatLngDto> geoHashForAlist(List<LatLngDto> latLngDtoList);
+    Map<String, LatLngDto> geoHashForAlist(List<LatLngDto> latLngDtoList, int precesion);
 
-    Map<LatLngDto, String> geoHashComplete(List<LatLngDto> latLngDtoList);
+    List<String> geoHashComplete(List<LatLngDto> latLngDtoList, int precesion);
+
+    List<String> geoHashOnBasisOfQuery(Double lat, Double lng, Integer radius);
 
 }
