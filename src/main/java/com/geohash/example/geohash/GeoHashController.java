@@ -27,7 +27,9 @@ public class GeoHashController {
 
     @PostMapping("/bounds/complete_hash/{precesion}")
     public List<String> geoHashComplete(@RequestBody BoundsReqDto boundsReqDto, @PathVariable("precesion") int preceison){
-        return geoInterface.geoHashComplete(boundsReqDto.getLatLngDtoList(), preceison);
+        List<String> stringList = geoInterface.geoHashComplete(boundsReqDto.getLatLngDtoList(), preceison);
+        System.out.println("in : " + boundsReqDto.getLatLngDtoList().size()+ " out : " + stringList.size());
+        return stringList;
     }
 
     @GetMapping("/circle/query/{lat}/{lng}/{radius}")
