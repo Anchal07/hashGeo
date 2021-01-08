@@ -7,7 +7,7 @@ public interface GeoInterface {
 
     String geohashForPairDavid(Double lat, Double lng);
 
-    Map<LatLngDto, String> geoHashForAlist(List<LatLngDto> latLngDtoList);
+    Map<String, LatLngDto> geoHashForAlist(List<LatLngDto> latLngDtoList);
 
     Map<LatLngDto, String> geoHashComplete(List<LatLngDto> latLngDtoList);
 

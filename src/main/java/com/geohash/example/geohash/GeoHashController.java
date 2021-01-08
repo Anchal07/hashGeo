@@ -21,7 +21,7 @@ public class GeoHashController {
     }
 
     @PostMapping("/bounds/list")
-    public Map<LatLngDto, String> geoHashForBoundsList(@RequestBody BoundsReqDto boundsReqDto){
+    public Map<String, LatLngDto> geoHashForBoundsList(@RequestBody BoundsReqDto boundsReqDto){
         return geoInterface.geoHashForAlist(boundsReqDto.getLatLngDtoList());
     }
 

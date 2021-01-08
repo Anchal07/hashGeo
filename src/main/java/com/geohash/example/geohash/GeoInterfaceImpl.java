@@ -18,9 +18,9 @@ public class GeoInterfaceImpl implements GeoInterface{
     }
 
     @Override
-    public Map<LatLngDto, String> geoHashForAlist(List<LatLngDto> latLngDtoList) {
-        HashMap<LatLngDto, String> result = new HashMap<>();
-        latLngDtoList.stream().forEach(v->{ result.put(v, GeoHash.encodeHash(v.getLatitude(), v.getLongitude(), 5)); });
+    public Map<String, LatLngDto> geoHashForAlist(List<LatLngDto> latLngDtoList) {
+        HashMap<String, LatLngDto> result = new HashMap<>();
+        latLngDtoList.stream().forEach(v->{ result.put(GeoHash.encodeHash(v.getLatitude(), v.getLongitude(), 5), v); });
         return result;
     }
 
