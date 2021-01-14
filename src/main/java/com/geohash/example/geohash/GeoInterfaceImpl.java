@@ -55,6 +55,20 @@ public class GeoInterfaceImpl implements GeoInterface{
         return null;
     }
 
+    /* to create create geo hash
+    Node n = null;
+    db  queruy -> to check if geohash tree of bounds already present
+    if present then Node n = some x data else n = null
+    return func(n)
+    * */
+
+    /*
+       recursive function =>
+       func(Node n ){
+        MAIN COMPUTATION
+       }
+     */
+
     private ch.hsr.geohash.GeoHash getGeoHashFromString(String geoHash){
         return ch.hsr.geohash.GeoHash.fromGeohashString(geoHash);
     }

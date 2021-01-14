@@ -37,4 +37,6 @@ public class GeoHashController {
         return geoInterface.geoHashOnBasisOfQuery(lat, lng, radius);
     }
 
+    /* to create geohash by passing bounds*/
+
 }

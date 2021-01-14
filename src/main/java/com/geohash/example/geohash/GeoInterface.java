@@ -13,4 +13,6 @@ public interface GeoInterface {
 
     List<String> geoHashOnBasisOfQuery(Double lat, Double lng, Integer radius);
 
+    /* to create geohash */
+
 }
